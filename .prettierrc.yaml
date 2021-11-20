@@ -1,0 +1,9 @@
+singleQuote: true
+trailingComma: es5
+overrides:
+  - files: ['*.yaml', '*.yml']
+    options:
+      singleQuote: false
+  - files: ['*.ts', '*.tsx']
+    options:
+      parser: typescript

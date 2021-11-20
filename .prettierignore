@@ -1,0 +1,7 @@
+# Configs managed by CLI tools
+package.json
+
+# External stuff
+node_modules/
+@types
+

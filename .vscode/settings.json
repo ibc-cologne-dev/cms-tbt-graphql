@@ -1,0 +1,15 @@
+{
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "typescript.validate.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "git.ignoreLimitWarning": true
+}
