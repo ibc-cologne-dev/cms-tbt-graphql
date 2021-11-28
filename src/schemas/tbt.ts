@@ -19,6 +19,7 @@ export const typeDefs = `
   type Resource {
     id: ID!
     title: String
+    image_thumbnail: String
     image_header: String
     content: [MediaType]
     _type: ResourceType
