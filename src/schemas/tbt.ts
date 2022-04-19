@@ -29,13 +29,13 @@ export const typeDefs = `
     title: String
     resourceType: ResourceType
     resources: [Resource]
-    number: Number
+    number: Int
   }
 
   type Tbt {
     id: ID!
     title: String
-    orderNumber: Number
+    orderNumber: Int
   }
 
   type Query {
