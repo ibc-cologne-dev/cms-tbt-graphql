@@ -27,6 +27,7 @@ export const typeDefs = `
   type Lesson {
     id: ID!
     title: String
+    subtitle: String
     resourceType: ResourceType
     resources: [Resource]
     number: Int
