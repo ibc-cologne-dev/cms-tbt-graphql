@@ -55,8 +55,3 @@ export const getLessonResources = async (id, tbtId) => {
   const data = await (await getDocs(lessonResourcesRef)).docs.map(doc => ({ id: doc.id, ...doc.data() }));
   return data;
 }
-
-export const getLessonResource = async (id) => {
-  const query = '';
-  return [];
-}

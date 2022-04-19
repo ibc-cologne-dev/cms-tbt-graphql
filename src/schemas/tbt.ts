@@ -19,7 +19,6 @@ export const typeDefs = `
   type Resource {
     id: ID!
     title: String
-    image_thumbnail: String
     image_header: String
     content: [MediaType]
     _type: ResourceType
@@ -28,15 +27,15 @@ export const typeDefs = `
   type Lesson {
     id: ID!
     title: String
-    image: String
     resourceType: ResourceType
     resources: [Resource]
+    number: Number
   }
 
   type Tbt {
     id: ID!
     title: String
-    image: String
+    orderNumber: Number
   }
 
   type Query {

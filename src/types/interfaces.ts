@@ -24,6 +24,5 @@ export interface Resource {
 
 export interface Lesson {
   title: string;
-  image: string;
   resources: Resource[];
 }
