@@ -28,6 +28,7 @@ export const typeDefs = `
     id: ID!
     title: String
     subtitle: String
+    color: String
     resourceType: ResourceType
     resources: [Resource]
     number: Int
