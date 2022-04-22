@@ -21,7 +21,7 @@ export const typeDefs = `
     title: String
     image_header: String
     content: [MediaType]
-    _type: ResourceType
+    type: ResourceType
   }
 
   type Lesson {
@@ -34,6 +34,14 @@ export const typeDefs = `
     number: Int
   }
 
+  type ShortLessonItem {
+    id: ID!
+    title: String
+    subtitle: String
+    color: String
+    number: Int
+  }
+
   type Tbt {
     id: ID!
     title: String
@@ -42,8 +50,8 @@ export const typeDefs = `
 
   type Query {
     tbts: [Tbt]
-    lessons(id: ID!): [Lesson]
-    lessonResources(id: ID!, tbtId: ID!): [Resource]
-    lessonResource(id: ID!): Lesson
+    lessons(tbtId: ID!): [ShortLessonItem]
+    lessonResources(lessonId: ID!, tbtId: ID!): [Resource]
+    lessonResource(lessonId: ID!, resourceId: ID!): Resource
   }
 `;

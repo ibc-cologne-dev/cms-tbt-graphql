@@ -1,4 +1,5 @@
 export interface ResourceType {
+  id: string;
   title: string;
 }
 
