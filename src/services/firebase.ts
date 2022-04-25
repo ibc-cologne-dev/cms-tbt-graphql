@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, query, collectionGroup, getDoc } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, query, getDoc, orderBy } from 'firebase/firestore/lite';
 import {Lesson, Resource} from '../types/interfaces';
 import * as env from '../config/env'
 
@@ -33,8 +33,11 @@ export const getTbts = async () => {
   return data;
 }
 
-export const getLessons = async (id) => {
-  const lessonsRef = collection(db, `tbt/${id}/lessons`);
+export const getLessons = async (id: any, sort: 'asc' | 'desc' = 'asc') => {
+  const lessonsRef = query(
+    collection(db, `tbt/${id}/lessons`),
+    orderBy('number', sort),
+  );
   let lessonsDocs = await (
     await getDocs(lessonsRef)
   ).docs.map(doc => ({ id: doc.id, ...doc.data() as Lesson }));
@@ -55,7 +58,6 @@ export const getLessonResources = async (lessonId, tbtId) => {
     for(let resource of lessonResources) {
       if (resource.type.id === resourceTypes[i]) {
         orderedResources.push(resource);
-        break;
       }
     }
   }

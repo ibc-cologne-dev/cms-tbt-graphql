@@ -11,6 +11,11 @@ export const typeDefs = `
     image
   }
 
+  enum SORT {
+    asc
+    desc
+  }
+
   type MediaType {
     type: Media
     value: String
@@ -50,7 +55,7 @@ export const typeDefs = `
 
   type Query {
     tbts: [Tbt]
-    lessons(tbtId: ID!): [ShortLessonItem]
+    lessons(tbtId: ID!, sort: SORT): [ShortLessonItem]
     lessonResources(lessonId: ID!, tbtId: ID!): [Resource]
     lessonResource(lessonId: ID!, resourceId: ID!): Resource
   }
