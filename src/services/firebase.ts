@@ -16,9 +16,9 @@ const firebaseConfig = {
 const resourceTypes = [
   '37W0y1iUxu10rZIP3LQD', // Sermon
   'YNoIHNvQFGOIs8aIMTCp', // Study Guide
+  'wiM2kuffbAdZtbRItmyu', // Memory Verse
   '1XPQFFAkWcIcB6WuyGmr', // Arrows
   'Hatsz65pSQUHI1Iu2ZN5', // Skit
-  'wiM2kuffbAdZtbRItmyu', // Memory Verse
 ];
 
 const app = initializeApp(firebaseConfig);
