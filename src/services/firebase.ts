@@ -24,13 +24,23 @@ const resourceTypes = [
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const getTbts = async () => {
-  const tbtRef = collection(db, 'tbt');
+const getCollection = async (name: string) => {
+  const tbtRef = collection(db, name);
   const data = await (await getDocs(tbtRef)).docs.map(doc => ({
     id: doc.id,
     ...doc.data(),
   }));
   return data;
+}
+
+export const getTbts = async () => {
+  const collection = await getCollection('tbt');
+  return collection;
+}
+
+export const getAudios = async () => {
+  const collection = await getCollection('audios');
+  return collection;
 }
 
 export const getLessons = async (id: any, sort: 'asc' | 'desc' = 'asc') => {

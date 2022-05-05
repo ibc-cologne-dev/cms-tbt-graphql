@@ -53,8 +53,16 @@ export const typeDefs = `
     orderNumber: Int
   }
 
+  type Audio {
+    id: ID!
+    file: String!
+    audio_duration: Int!
+    artist: String!
+  }
+
   type Query {
     tbts: [Tbt]
+    audios: [Audio]
     lessons(tbtId: ID!, sort: SORT): [ShortLessonItem]
     lessonResources(lessonId: ID!, tbtId: ID!): [Resource]
     lessonResource(lessonId: ID!, resourceId: ID!): Resource
