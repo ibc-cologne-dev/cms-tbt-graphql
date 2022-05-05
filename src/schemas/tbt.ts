@@ -56,6 +56,7 @@ export const typeDefs = `
   type Audio {
     id: ID!
     file: String!
+    title: String!
     audio_duration: Int!
     artist: String!
   }
