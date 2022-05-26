@@ -33,13 +33,22 @@ const getCollection = async (name: string) => {
   return data;
 }
 
+const getCollectionOrdered = async (name: string, sort: "asc" | "desc", orderField: string) => {
+  const tbtRef = query(collection(db, name), orderBy(orderField, sort));
+  const data = await (await getDocs(tbtRef)).docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return data;
+}
+
 export const getTbts = async () => {
   const collection = await getCollection('tbt');
   return collection;
 }
 
 export const getAudios = async () => {
-  const collection = await getCollection('audios');
+  const collection = await getCollectionOrdered('audios', 'asc', 'number');
   return collection;
 }
 

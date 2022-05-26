@@ -57,8 +57,11 @@ export const typeDefs = `
     id: ID!
     file: String!
     title: String!
+    subtitle: String!
+    number: Int
     audio_duration: Int!
     artist: String!
+    album: String!
   }
 
   type Query {
