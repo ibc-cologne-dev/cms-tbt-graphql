@@ -24,15 +24,6 @@ const resourceTypes = [
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const getCollection = async (name: string) => {
-  const tbtRef = collection(db, name);
-  const data = await (await getDocs(tbtRef)).docs.map(doc => ({
-    id: doc.id,
-    ...doc.data(),
-  }));
-  return data;
-}
-
 const getCollectionOrdered = async (name: string, sort: "asc" | "desc", orderField: string) => {
   const tbtRef = query(collection(db, name), orderBy(orderField, sort));
   const data = await (await getDocs(tbtRef)).docs.map(doc => ({
@@ -43,7 +34,8 @@ const getCollectionOrdered = async (name: string, sort: "asc" | "desc", orderFie
 }
 
 export const getTbts = async () => {
-  const collection = await getCollection('tbt');
+  const collection = await getCollectionOrdered('tbt', 'asc', 'orderNumber');
+  console.log(collection)
   return collection;
 }
 
